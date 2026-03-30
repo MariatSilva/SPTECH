@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 5</title>
+</head>
+<body>
+    <label for="">Digite a temperatura:</label>
+    <input type="number" id="ipt_temperatura">
+    <br>
+    <label for="">Digite a umidade:</label>
+    <input type="number" id="ipt_umidade">
+    <br>
+    <button onclick="analisarClima()">Avaliar Clima</button>
+    
+
+</body>
+<script>
+    function analisarClima(){
+        let temperatura = Number (ipt_temperatura.value);
+        let umidade = Number (ipt_umidade.value);
+
+        if(umidade < 0 || umidade >100){
+            console.log("entrei no if")
+          alert (`Valor de umidade inválido`)
+            console.log("sai do if")
+        }else{
+            if(umidade >=22 && umidade<=23){
+               alert (`Clima agradável`)
+            }
+            else{
+                alert (`Clima desconfortável`)
+            }
+
+        }
+
+    }
+</script>
+
+ <!-- c.1) Caso a umidade for inválida, ou seja, menor que 0 e maior que 100, exiba um alert "Valor de umidade inválido" e limpe qualquer outro texto que exista na tela (item c.2) 
+      c.2) Caso a umidade for válida, exiba uma dessas frases na própria página, abaixo do botão: 
+
+            "Clima agradável", caso a temperatura for entre 22 e 23 e a umidade for menor que 60. 
+            "Clima desconfortável", em caso contrário.   -->
+</html>

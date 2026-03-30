@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>6.Times Paulistas: O Canto da Sua Torcida!
+</title>
+<style>
+   label {
+    height: 70%;
+   }
+</style>
+</head>
+<body>
+    <label for="id_time">Digite o time que você torce (São Paulo, Palmeiras, Corinthians, Santos):</label>
+    <input type="text" id="id_time">
+    <br>
+    <button onclick="analisarTime()">Fale sobre esse time</button>
+    <br><br>
+    <div id="resultadoTime"></div>
+</body>
+
+    <script>
+        function analisarTime(){
+            let nomeTime = (id_time.value);
+
+            if(nomeTime == "São Paulo"){
+                resultadoTime.innerHTML = `<div style="color:red; background-color:black; width:30%; height:20px;">Salve o Tricolor paulista</div>`
+            }else if (nomeTime == "Palmeiras"){
+                 resultadoTime.innerHTML = `<div style="color:white;background-color:green; width:30%; height:20px;">Salve o alviverde imponente</div>`
+            }else if (nomeTime == "Corinthians"){
+                 resultadoTime.innerHTML = `<div style="color:white;background-color:black; width:30%; height:20px;">Salve o Corinthians</div>`
+            }else if (nomeTime == "Santos"){
+                resultadoTime.innerHTML = `<div style="color:black;background-color:white; width:40%; height:20px;">Agora quem dá a bola é o Santos</div>`
+            }else {
+                resultadoTime.innerHTML = `Digite exatamente São Paulo, Palmeiras, Corinthians ou Santos`
+
+            }
+        }
+    </script>
+</html>

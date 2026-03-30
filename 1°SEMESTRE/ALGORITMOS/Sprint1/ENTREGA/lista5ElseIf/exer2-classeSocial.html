@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2. Classe Social em Tuvalu: Em Qual Você se Encaixa?</title>
+</head>
+<body>
+    <label for="id_renda_familiar">Digite sua renda familiar:</label>
+    <input type="number" id="id_renda_familiar">
+    <br>
+    <button onclick="analisarRenda()">Analisar Renda</button>
+    <div id="resultadoRendaFamiliar"></div>
+</body>
+    <script>
+        function analisarRenda(){
+            let rendaFamiliar = Number (id_renda_familiar.value);
+
+            if(rendaFamiliar<=250){
+                resultadoRendaFamiliar.innerHTML = `Classe E`
+            }else if (rendaFamiliar <=900){
+                resultadoRendaFamiliar.innerHTML = `Classe D`
+            }else if (rendaFamiliar <=2500){
+                resultadoRendaFamiliar.innerHTML = `Classe C`
+            }else if (rendaFamiliar <=9500){
+                resultadoRendaFamiliar.innerHTML = `Classe B`
+            }else {
+                resultadoRendaFamiliar.innerHTML = `Classe A`
+            }
+        }
+    </script>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operadores</title>
+    <style>
+        input{
+            box-sizing: border-box;
+            width: 200px;
+        }
+        h1{
+            color:brown;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Operadores Matématicos</h1>
+    <span>Digite número 1</span>
+    <input type="number" id="id_num01">
+    <br>
+    <span>Digite número 2</span>
+    <input type="number" id="id_num02">
+    <br>
+    <button onclick="calcular()">Calcular</button>
+
+
+    <!-- 10%3=1 mostra o resto
+    5**2 elevado a 2 -->
+
+</body>
+<script>
+    function calcular() {
+        let num_01_digitado = Number (id_num01.value)
+        let num_02_digitado = Number (id_num02.value)
+        
+
+        alert("A subtração é " + (num_01_digitado - num_02_digitado))
+        alert("A soma é " + (num_01_digitado + num_02_digitado))
+        alert("A soma é " + (num_01_digitado * num_02_digitado))
+        alert("A soma é " + (num_01_digitado / num_02_digitado))
+
+    }
+</script>
+
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="id_nota_01">
+    <input type="text" id="id_nota_02">
+
+    <button onclick="calcular()">Calcular</button>
+
+    <p id="id_resultado"></p>
+
+</body>
+
+<script>
+    function calcular (){
+        let nota_01 = Number(id_nota_01.value);
+        let nota_02 = Number(id_nota_02.value);
+       
+        id_resultado.innerHTML = `
+        Media: ${(nota_01 + nota_02)/2}<br>
+        `
+
+    }
+</script>
+</html>

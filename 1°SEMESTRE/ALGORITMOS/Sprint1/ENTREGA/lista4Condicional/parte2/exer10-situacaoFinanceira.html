@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>10. Situação Financeira da Conta Bancária</title>
+</head>
+<body>
+    <label for="id_valor_saldo">Digite o saldo da sua conta bancária:</label>
+    <input type="number" id="id_valor_saldo">
+    <br>
+    <button onclick="situacaoSaldo()">Verificar finanças</button>
+    <br><br>
+    <div id="respostaFinancas"></div>
+
+
+</body>
+
+    <script>
+        function situacaoSaldo(){
+            let valorSaldo = Number (id_valor_saldo.value);
+        if(valorSaldo == 0){
+            respostaFinancas.innerHTML = `<div style="color:black;">Conta zerada.</div>`
+        } if(valorSaldo < 0){
+            respostaFinancas.innerHTML = `<div style="color:red;">Está devendo!</div>`
+        }if (valorSaldo > 0) {
+            respostaFinancas.innerHTML = `<div style="color:blue;">Saldo positivo!Sorriso</div>`
+        }
+        }
+    </script>
+</html>

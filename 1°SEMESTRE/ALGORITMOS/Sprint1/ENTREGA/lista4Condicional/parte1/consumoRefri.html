@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2. Consumo Anual de Refrigerante</title>
+</head>
+<body>
+    
+    <label for="id_qtd_latinha">Quantas latas de refrigerante você toma por dia:</label>
+    <input type="number" id="id_qtd_latinha">
+    <button onclick="calcularRefri()">Quantos refris?</button>
+
+    <p id="resultado_latinha"></p>
+</body>
+
+<script>
+    function calcularRefri(){
+        let qtdLatinha = Number (id_qtd_latinha.value);
+
+         let qtd_latinha_ano = qtdLatinha * 365;
+
+        if (qtd_latinha_ano >= 500) {
+            resultado_latinha.innerHTML = `Você consome  ${qtd_latinha_ano} por ano.`
+           resultado_latinha.innerHTML = resultado_latinha.innerHTML + ` <br>Cuidado com a diabetes!`
+        } else {
+            resultado_latinha.innerHTML = `Você consome  ${qtd_latinha_ano} por ano`
+
+        }
+    }
+
+</script>
+</html>

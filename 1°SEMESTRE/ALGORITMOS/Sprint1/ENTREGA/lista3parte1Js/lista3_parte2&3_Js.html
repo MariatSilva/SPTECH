@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista 3 parte 2/3</title>
+    
+</head>
+
+<body>
+    <h1>2. Parte 2 - Variáveis</h1>
+    <h2>7. Simulador de Transações Bancárias</h2>
+
+    <p id="id_saldo_atual">Saldo atual: R$0</p>
+    <button onclick="receber100()">Receber R$100</button>
+    <button onclick="receber50()">Pagar R$50</button>
+
+    <br><br>
+
+    <!-- SEPARANDO UMA QUESTAO DA OUTRA -->
+
+    <h2>8. Banco Virtual: Depósitos e Retiradas</h2>
+
+    <span>Digite o valor a ser depositado/retirado:</span>
+    <input type="text" id="id_valor_banco">
+    <br>
+    <button onclick="depositar()">Depositar</button>
+    <button onclick="retirar()">Retirar</button>
+    
+    <br><br>
+
+    <!-- SEPARANDO UMA QUESTAO DA OUTRA -->
+ 
+    <h1>3. Parte 2 - Variáveis e innerHTML</h1>
+  
+    <h2>9. Calculadora das Fases do Sono</h2>
+
+    <span>Digite quantas horas você dormiu:</span>
+    <input type="number" id="id_qtd_horas_sono">
+    <br>
+    <button onclick="calcular_sono()">Calcular sono</button>
+
+    <p id="result_horas_sono">A sua tabela do sono aparecerá aqui!</p>
+      <br>
+
+    <!-- SEPARANDO UMA QUESTAO DA OUTRA -->
+
+    <h2>10. Analisador de Resultados Eleitorais</h2>
+
+    <span>Digite a quantidade de votos que o candidato A teve nas eleições:</span>
+    <input type="number" id="id_votos_candidatoA">
+    <br>
+    <span>Digite a quantidade de votos que o candidato B teve nas eleições:</span>
+    <input type="number" id="id_votos_candidatoB">
+    <br>
+    <span>Digite a quantidade de votos em branco teve nas eleições:</span>
+    <input type="number" id="id_votos_branco">
+    <br>
+    <span>Digite a quantidade de votos nulo teve nas eleições:</span>
+    <input type="number" id="id_votos_nulo">
+    <br>
+    <button onclick="calculo_eleicoes()">Resultado da Eleição</button>
+
+    <p id="id_result_eleicoes">O resultado das eleições aparecerá aqui!
+    </p>
+      <br><br>
+
+  <!-- SEPARANDO UMA QUESTAO DA OUTRA -->
+
+    <h2>11. Tabuada Interativa</h2>
+
+    <span>Digite um número pra ver sua tabuada:</span>
+    <input type="number" id="id_num_tabuada">
+    <button onclick="calculo_tabuada()">Ver tabuada</button>
+
+    <p id="result_tabuada">O resultado da sua tabuada aparecerá aqui!</p>
+      <br><br>
+
+    <!-- SEPARANDO UMA QUESTAO DA OUTRA -->
+
+    <h2>12. Divisão Justa da Pizza (Com Gorjeta)</h2>
+
+    <span>Digite o sabor da pizza:</span>
+    <input type="text" id="id_sabor_pizza">
+    <br>
+    <span>Digite o valor da pizza:</span>
+    <input type="number" id="id_valor_pizza">
+    <br>
+    <span>Digite para quantas pessoas o valor será dividido:</span>
+    <input type="number" id="id_qtd_pessoas_pizza">
+    <br>
+    <button onclick="calculo_pizza()">Ver valor por amigo</button>
+
+    <p id="result_pizza">Quanto cada amigo deverá colaborar com o valor da pizza aparecerá aqui! </p>
+      <br><br>
+
+    <!-- SEPARANDO UMA QUESTAO DA OUTRA -->
+
+    <h2>13. Cálculo de Gastos com Transporte</h2>
+
+    <span>Digite o valor da passagem de ônibus:</span>
+    <input type="number" id="id_passagem_onibus">
+    <br>
+    <span>Digite quantas viagens você faz por mês</span>
+    <input type="number" id="id_qtd_viagens">
+    <br>
+    <span>Digite a distância (km) do seu trabalho até sua casa</span>
+    <input type="number" id="id_distancia">
+    <br>
+    <button onclick="calcular_VT()">Calcular VT</button>
+
+    <p id="result_VT">Quanto você irá gastar de VT por mês aparecerá aqui!</p>
+      <br><br>
+    
+     <!-- SEPARANDO UMA QUESTAO DA OUTRA -->
+
+    <h2>14. Transformações Saiyajin e Poder de Luta</h2>
+
+    <span>Digite seu KI de base:</span>
+    <input type="number" id="id_ki_base">
+    <p>Transformar...</p>
+    <button onclick="calcular_ssj()">SSJ</button>
+    <button onclick="calcular_ssj2()">SSJ2</button>
+    <button onclick="calcular_ssj3()">SSJ3</button>
+
+    <p id="result_ssj">Seu novo KI aparecerá aqui!</p>
+
+    <!-- SEPARANDO UMA QUESTAO DA OUTRA -->
+
+    <h2>15. Calculadora de IMC</h2>
+
+    <span>Digite quanto você pesa(Kg):</span>
+    <input type="number" id="id_peso">
+    <br>
+    <span>Digite a sua altura(m):</span>
+    <input type="number" id="id_altura">
+    <br>
+    <button onclick="calcular_imc()">Calcular IMC</button>
+
+    <p id="result_imc">O resultado do seu IMC aparecerá aqui!</p>
+
+
+
+</body>
+
+<script>
+    let saldo_total = 0;
+
+    function receber100() {
+        saldo_total = (saldo_total + 100);
+
+
+        id_saldo_atual.innerHTML = `
+
+          Transferência de R$100 recebida!
+            <br>
+            Saldo atual: R$${saldo_total}
+            `
+
+    }
+    function receber50() {
+        saldo_total = (saldo_total - 50);
+
+        id_saldo_atual.innerHTML = `
+           Pagamento de R$50 efetuado!
+            <br>
+            Saldo atual: R$${saldo_total}
+            `
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    let valorBanco = 0;
+    function depositar() {
+
+        let valorDeposito = Number(id_valor_banco.value);
+
+        valorBanco = valorBanco + valorDeposito;
+        //valorBanco += valorDeposito
+        alert("Depósito de R$" + valorDeposito + " efetuado! Saldo atual: R$" + valorBanco)
+
+    }
+    function retirar() {
+        let valorRetirada = Number(id_valor_banco.value)
+
+        valorBanco = valorBanco - valorRetirada;
+        alert("Retirada de R$" + valorRetirada + " efetuado! Saldo atual: R$" + valorBanco)
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+    function calcular_sono() {
+        let horas_sono = Number(id_qtd_horas_sono.value);
+
+        let horasA = horas_sono * 0.05;
+        let horasB = horas_sono * 0.45;
+        let horasC = horas_sono * 0.30;
+        let horasD = horas_sono * 0.20;
+
+        result_horas_sono.innerHTML = `
+
+           
+                Ao dormir ${horas_sono} horas, você dormiu:
+            <br>
+            ${horasA} horas na fase 1;<br>
+            ${horasB} horas na fase 2;<br>
+            ${horasC} horas na fase 3;<br>
+            ${horasD} horas na REM;<br>
+            
+            `
+    }
+
+    function calculo_eleicoes (){
+        let votosCandidatoA = Number (id_votos_candidatoA.value);
+        let votosCandidatoB = Number (id_votos_candidatoB.value);
+        let votosBranco = Number (id_votos_branco.value);
+        let votosNulo = Number (id_votos_nulo.value);
+
+        votoTotal = votosCandidatoA + votosCandidatoB + votosBranco + votosNulo;
+        votoInvalido = votosBranco + votosNulo;
+
+        porcentCandidatoA = (votosCandidatoA/votoTotal) * 100;
+        porcentCandidatoB = (votosCandidatoB/votoTotal) * 100;
+        porcentInvalido = (votoInvalido/votoTotal) * 100;
+
+
+       id_result_eleicoes.innerHTML = `
+            Total de votos: ${votoTotal} 
+            <br>
+            Candidato A: ${porcentCandidatoA}% (${votosCandidatoA} votos)  
+            <br>
+            Candidato B: ${porcentCandidatoB}% (${votosCandidatoB} votos)  
+            <br>
+            Inválidos: ${porcentInvalido}% (${votoInvalido} votos)  
+       `
+
+    }
+    function calculo_tabuada(){
+        let numTabuada = (id_num_tabuada.value);
+        
+        result_tabuada.innerHTML = `
+        ${numTabuada} x 1 = ${numTabuada * 1}
+        <br>
+        ${numTabuada} x 2 = ${numTabuada * 2}
+        <br>
+        ${numTabuada} x 3 = ${numTabuada * 3}
+        <br>
+        ${numTabuada} x 4 = ${numTabuada * 4}
+        <br>
+        ${numTabuada} x 5 = ${numTabuada * 5}
+        <br>
+        ${numTabuada} x 6 = ${numTabuada * 6}
+        <br>
+        ${numTabuada} x 7 = ${numTabuada * 7}
+        <br>
+        ${numTabuada} x 8 = ${numTabuada * 8}
+        <br>
+        ${numTabuada} x 9 = ${numTabuada * 9}
+        `
+    }
+
+    function calculo_pizza (){
+        let valorPizza = Number (id_valor_pizza.value);
+        let qtdPessoas = Number (id_qtd_pessoas_pizza.value);
+        let saborPizza = (id_sabor_pizza.value)
+
+
+        valorTotal = ((10 * valorPizza) /100) + valorPizza
+
+        result_pizza.innerHTML = `
+        Cada amigo vai colaborar com R$${valorTotal / qtdPessoas} para a pizza de ${saborPizza}.  
+        `
+    }
+
+    function calcular_VT (){
+        let valorOnibus = Number (id_passagem_onibus.value);
+        let qtdViagens = Number (id_qtd_viagens.value);
+        let kmDistancia = Number (id_distancia.value);
+        
+        let  qtdViagensUber =  qtdViagens * 0.1
+        let qtdViagensOnibus = qtdViagens - qtdViagensUber
+        
+
+        let valorViagemUber = (qtdViagensUber * kmDistancia) * 0.75;
+        let valorViagemOnibus = valorOnibus * qtdViagensOnibus;
+
+       let  valorTotalVt = valorViagemUber + valorViagemOnibus;
+
+        result_VT.innerHTML = `
+           Você vai gastar R$${valorTotalVt} por mês com transporte.  
+        `
+    }
+
+    function calcular_ssj (){
+        let kiBase = (id_ki_base.value);
+
+        ssj = kiBase * 50
+
+        result_ssj.innerHTML= `
+        Após se transformar em SSJ, o ki desse Sayajin passa a ser de ${ssj}
+        ` 
+    }
+
+      function calcular_ssj2 (){
+        let kiBase = (id_ki_base.value);
+
+        ssj2 = kiBase * 100
+
+        result_ssj.innerHTML= `
+        Após se transformar em SSJ2, o ki desse Sayajin passa a ser de ${ssj2}
+        ` 
+    }
+      function calcular_ssj3 (){
+        let kiBase = (id_ki_base.value);
+
+        ssj3 = kiBase * 200
+
+        result_ssj.innerHTML= `
+        Após se transformar em SSJ3, o ki desse Sayajin passa a ser de ${ssj3}
+        ` 
+    }
+
+    function calcular_imc (){
+        let peso = Number (id_peso.value);
+        let altura = Number (id_altura.value);
+
+        imc = peso/ (altura * altura);
+
+        if (imc < 18.5) {
+            result_imc.innerHTML =`
+            Você está abaixo do peso normal.
+            `
+        }else if (imc <= 24.9){
+            result_imc.innerHTML =`
+            Você está com peso normal.
+            `
+        }else if (imc <= 29.9){
+            result_imc.innerHTML =`
+            Você está com excesso de peso.
+            `
+        }else if (imc <= 34.9){
+            result_imc.innerHTML =`
+            Você está com obesidade classe 1.
+            `
+        }else if (imc <= 39.9){
+            result_imc.innerHTML =`
+            Você está com obesidade classe 2.
+            `
+        }else {
+             result_imc.innerHTML =`
+            Você está com obesidade classe 3.
+            `
+        }
+
+    }
+
+    
+</script>
+
+</html>

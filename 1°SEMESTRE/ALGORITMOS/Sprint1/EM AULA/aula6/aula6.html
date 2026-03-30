@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>Qual menina super poderosa você seria?</h3>
+    <label>Qual cor você prefere?</label>
+    <input type="text" id="id_cor">
+    <br>
+    <button onclick="analisar()">Resultado</button>
+
+    <h4 id="id_resultado"></h4>
+</body>
+<script>
+    function analisar(){
+        let cor = (id_cor.value);
+
+        if (cor == "vermelho"){
+            id_resultado.innerHTML = `Florzinha`
+        }else if (cor == "azul"){
+            id_resultado.innerHTML = `Lindinha`
+        }else if (cor == "verde"){
+            id_resultado.innerHTML = `Docinho`
+        }else {
+            id_resultado.innerHTML = `Digite exatamente vermelho, azul ou verde.`
+        }
+    }
+</script>
+</html>

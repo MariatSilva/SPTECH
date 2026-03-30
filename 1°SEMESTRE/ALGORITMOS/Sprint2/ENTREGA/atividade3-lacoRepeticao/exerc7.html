@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 7</title>
+
+</head>
+
+<body>
+    <label for="">Digite quantos depósitos você fez:</label>
+    <input type="number" id="ipt_qtd_deposito">
+    <br>
+    <label for="">Digite o valor dos depósitos:</label>
+    <input type="number" id="ipt_valor_deposito">
+    <br>
+    <button onclick="analisarGrana()">Acompanhar grana</button>
+    <br><br>
+    <div id="div_resultado"></div>
+    
+</body>
+<script>
+    function analisarGrana() {
+        div_resultado.innerHTML = ``
+        let qtdDeposito = Number(ipt_qtd_deposito.value);
+        let valorDeposito = Number(ipt_valor_deposito.value);
+
+        let saldoTotal = 0;
+
+        for (i = 1; i <= qtdDeposito; i++) {
+            
+            saldoTotal += valorDeposito;
+
+            if (i % 3 == 0) {
+                saldoTotal *= 1.01;
+                
+                div_resultado.innerHTML += `<br><br>${i}º Mês: R$ ${saldoTotal.toFixed(2)}
+                <img style="width:1%; height:1%; " src="data:image/jpeg;base64,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" alt="">`
+
+               
+            }
+
+           else {
+                div_resultado.innerHTML += `<br><br>${i}º Mês: R$ ${saldoTotal.toFixed(2)}`
+                
+            }
+
+        }    
+         div_resultado.innerHTML += `<br><br> Total guardado ${saldoTotal.toFixed(2)}`
+
+
+    }
+</script>
+
+</html>

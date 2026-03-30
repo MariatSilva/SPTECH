@@ -1,0 +1,9 @@
+O que foi exercitado nessa atividade:
+
+CREATE DATABASE
+CREATE TABLE
+SELECT 
+INSERT
+ORDER BY
+WHERE =
+WHERE LIKE

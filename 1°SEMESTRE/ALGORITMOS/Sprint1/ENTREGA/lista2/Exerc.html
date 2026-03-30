@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introdução a JavaScript</title>
+</head>
+
+style
+<body>
+    <h1> Lista 2:Atividade Introdutória a JavaScript</h1>
+
+    <h3>1. Cadastro de Local e Nascimento </h3>
+
+    Cidade Natal:<input type="text" id="cidUser">
+    <br>
+    Data de nascimento:<input type="date" id="dtUser">
+    <br>
+    <button onclick="alert ('Você nasceu na cidade de ' + cidUser.value + ' em ' + dtUser.value)">Cadastrar</button>
+
+
+    <h3>2. Calculadora de Peso e Altura </h3>
+
+    Peso:<input type="number" id="pesoUser">
+    <br>
+    Altura:<input type="number" id="altUser">
+    <br>
+    <button onclick="alert ('Seu peso é ' + pesoUser.value + 'kg e sua altura é ' + altUser.value + 'm.')">Fale
+        comigo</button>
+
+    <h3>3. Futebol</h3>
+
+    Nome do time:<input type="text" id="timeUser">
+    <br>
+    Número de títulos: <input type="number" id="numTitulos">
+    <br>
+    <button onclick="alert ('O time ' +timeUser.value+ ' tem ' +numTitulos.value+ ' títulos.')">Amo meu time</button>
+
+    <h3>4. Onde eu moro</h3>
+
+    Nome da sua rua/avenida/vila: <input type="text" id="logUser">
+    <br>
+    Número da sua casa: <input type="number" id="numUser">
+    <br>
+    <button
+        onclick="alert ('O logradouro é ' + logUser.value + '.'); alert ('O número do logradouro é ' + numUser.value + '.')">Onde eu
+        moro</button>
+
+    <h3>5. Opinião da mãe e da avó </h3>
+
+    Digite sua nota:<input type="number" id="notaUser">
+    <br>
+    <button onclick="opnVo ()">Opinião da avó</button>
+    <button onclick="opnMae ()">Opinião da mãe</button>
+    <p id="mensagem"></p>
+
+    <h3>6. Farol </h3>
+
+        <button onclick="pareBtn ()">Pare</button>
+        <button onclick="penseBtn()">Pense</button>
+        <button onclick="sigaBtn()">Siga</button>
+        <p id="mensBtn"></p>
+
+
+
+
+
+    <script>
+        function opnVo() {
+            let notaUser = document.getElementById("notaUser").value;
+            document.getElementById("mensagem").textContent =
+                "Muito bem, que neto inteligente, porque tirou " + notaUser;
+        }
+        function opnMae() {
+            let notaUser = document.getElementById("notaUser").value;
+            document.getElementById("mensagem").textContent =
+                "Não fez mais que tua obrigação com essa nota " + notaUser;
+        }
+
+        function pareBtn(){
+            document.getElementById("mensBtn").textContent = "Pare e aguarde."
+        }
+        function penseBtn(){
+            document.getElementById("mensBtn").textContent = "Pense se pode seguir ou se deve parar!"
+        }
+        function sigaBtn(){
+            document.getElementById("mensBtn").textContent = "Pode seguir adiante."
+        }
+    </script>
+
+</body>
+
+</html>

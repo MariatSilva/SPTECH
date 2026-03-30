@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 4</title>
+</head>
+<body>
+    <label for="">Quantas xícaras de café com leite você já tomou na vida:</label>
+    <input type="number" id="ipt_qtd_xicaras">
+    <br>
+    <button onclick="analisarQuantidade()">Ver a quantidade</button>
+    <br>
+    <div id="div_cafe"></div>
+    <div id="div_leite"></div>
+    
+    
+</body>
+<script>
+    function analisarQuantidade(){
+        div_cafe.innerHTML = ``;
+        div_leite.innerHTML = ``;
+        let qtdXicara = Number (ipt_qtd_xicaras.value);
+
+        for (let i = 1; i <=qtdXicara; i++){
+            div_cafe.innerHTML += `<img style="width:10%; height:10%" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRAolriOgj72Z-SNQoe0LKTPOPU1Uvy71nc-S4q2qrog&s" alt="">`
+            div_cafe.innerHTML += `<img style="width:10%; height:10%" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRAolriOgj72Z-SNQoe0LKTPOPU1Uvy71nc-S4q2qrog&s" alt="">`
+            div_leite.innerHTML += `<img style="width:10%; height:10%" src="https://bolosparavender.com/wp-content/uploads/2020/08/fazer-bolo-com-leite-em-po-da-certo-como-fazer.jpg" alt="">`
+        }
+    }
+</script>
+</html>

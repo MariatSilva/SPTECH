@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>Qual é a resposta numerica</h3>
+
+    <input type="text" id="ipt_numero">
+    <button onclick="adivinhar()">Adivinhe o número.</button>
+    <div id="id_resultado"></div>
+</body>
+
+<script>
+    function adivinhar (){
+        let palpite = Number (ipt_numero.value);
+
+        if (palpite == 42){
+            id_resultado.innerHTML = `Acertou!!!`;
+        }else {
+            id_resultado.innerHTML = `Errou!!`;
+        }
+
+
+        // versao com if ternário
+
+        let mensagem = palpite == 42 ? "Vc acertou!!" : "Vc errou!!"
+
+        let mensagemMaior = idade > 18 ? "Pode votar!!" : "Não vota ainda"
+        id_resultado.innerHTML = mensagem
+    }
+</script>
+</html>

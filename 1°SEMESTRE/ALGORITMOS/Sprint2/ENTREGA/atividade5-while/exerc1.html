@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 1</title>
+
+    <button onclick="contar()">Contar</button>
+    <br><br>
+    <div id="resultado"></div>
+    
+</head>
+<body>
+    <script>
+        function contar(){
+            let contador = 1;
+
+            while(contador<=15){
+                resultado.innerHTML += `N°${contador}<br>`
+                contador ++;
+            }
+        }
+    </script>
+</body>
+</html>

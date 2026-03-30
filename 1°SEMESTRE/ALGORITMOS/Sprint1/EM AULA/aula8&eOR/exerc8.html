@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label for="">Digite sua idade:</label>
+    <input type="text" id="ipt_idade">
+    <label for="">Digite a qtd de pets que vc tem:</label>
+    <input type="text" id="ipt_qtd_pet">
+    <button onclick="analisar()">Analisar</button>
+    <div id="div_resultado"></div>
+</body>
+
+<script>
+    function analisar (){
+        let idade = Number (ipt_idade.value);
+        let qtdPet = Number (ipd_qtd_pet.value);
+
+        if (idade>= 18){
+            if (qtdPet >=3){
+                div_resultado = `Você tem direito ao crédito. Pet feliz!!`
+            }
+        }
+        if (idade >=18 && qtdPet>=3){
+            div_resultado = `Você tem direito ao crédito. Pet feliz!!`
+        }
+        if (idade >=18 ||
+        
+        qtdPet>=3){
+            div_resultado = `Você tem direito ao crédito. Pet feliz!!`
+        }
+    }
+</script>
+</html>

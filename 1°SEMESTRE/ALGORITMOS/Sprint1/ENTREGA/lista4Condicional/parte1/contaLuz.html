@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5. Cálculo da Conta de Luz</title>
+</head>
+<body>
+    <label for="id_qtd_kwh">Digite a quantidade de KWh consumida no mês </label>
+    <input type="number" id="id_qtd_kwh">
+    <br>
+    <button onclick="calcularConta()">Calcular conta de luz</button>
+</body>
+
+<script>
+   function calcularConta(){
+    let qtdKwh = Number (id_qtd_kwh.value);
+    let totalConta = (qtdKwh * 0.85);
+
+    if (qtdKwh < 100){
+        totalConta -= totalConta * 0.1;
+
+        alert ("O valor total a pagar da conta de luz é: "+ totalConta);
+    }else{
+                alert ("O valor a pagar total da conta de luz é: "+ totalConta);
+
+    }
+   }
+</script>
+</html>

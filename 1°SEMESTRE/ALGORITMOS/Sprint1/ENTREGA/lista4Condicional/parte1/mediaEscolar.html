@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3. Média Escolar de Paty</title>
+</head>
+<body>
+    <label for="id_nota1">Digite a nota 1</label>
+    <input type="number" id="id_nota1">
+    <br>
+     <label for="id_nota2">Digite a nota 2</label>
+    <input type="number" id="id_nota2">
+    <br>
+     <label for="id_nota3">Digite a nota 3</label>
+    <input type="number" id="id_nota3">
+    <br>
+    <button onclick="calcularMedia()">Analisar desempenho</button>
+
+    <p id="resultadoMedia"></p>
+</body>
+
+<script>
+   function calcularMedia() {
+        let nota1 = Number (id_nota1.value);
+        let nota2 = Number (id_nota2.value);
+        let nota3 = Number (id_nota3.value);
+
+        let media = (nota1+nota2+nota3)/3;
+
+        if(media >= 9.4){
+            resultadoMedia.innerHTML = `Sua média foi de ${media}.`
+             resultadoMedia.innerHTML =  resultadoMedia.innerHTML + ` <br>Parabéns, você é fora de série!`
+        }else {
+             resultadoMedia.innerHTML = `Sua média foi de ${media}.` 
+        }
+    }
+</script>
+</html>

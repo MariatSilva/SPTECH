@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operadores</title>
+    <style>
+        input {
+            box-sizing: border-box;
+            width: 200px;
+        }
+
+        h1 {
+            color: brown;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Operadores Matématicos</h1>
+    <span>Digite número 1</span>
+    <input type="number" id="id_num01">
+    <br>
+    <span>Digite número 2</span>
+    <input type="number" id="id_num02">
+    <br>
+    <button onclick="calcular()">Calcular</button>
+
+    <p id="id_resultado">O resultado irá aparecer aqui depois de calcular!</p>
+
+
+
+</body>
+<script>
+
+    //Essa versão é sem alert, com innerHtml
+    function calcular() {
+        let num_01_digitado = Number(id_num01.value);
+        let num_02_digitado = Number(id_num02.value);
+
+        // id_resultado.innerHTML = "Soma: " + (num_01_digitado + num_02_digitado) + 
+        // " <br>Multi: " + (num_01_digitado * num_02_digitado)
+
+        //interpolação
+
+        id_resultado.innerHTML = `
+        Soma: ${(num_01_digitado + num_02_digitado)}<br>
+        Multi: ${(num_01_digitado * num_02_digitado)} <br>
+        Div: ${(num_01_digitado / num_02_digitado)}
+        `
+
+
+
+    }
+</script>
+
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label for="">Digite quantas horas um caminhão ficou na doca (com exceção das 5 horas permitidas):</label>
+    <input type="number" id="input_horas_permanencia">
+    <br>
+    <label for="">Digite a capacidade total desse caminhão em toneladas:</label>
+    <input type="number" id="input_capacidade_tonelada_caminhao">
+    <br>
+    <label for="">Digite quantas docas seu armazem tem em media:</label>
+    <input type="number"id="input_qtd_docas">
+    <br>
+    <label for="">Digite quantos caminhoes uma doca tem em media:</label>
+    <input type="number" id="input_qtd_caminhoes_doca">
+    <br>
+    <button onclick="simularGasto()">Simular Gasto em multa</button>
+    <br><br>
+    <div id="div_mensagem"></div>
+</body>
+
+<script>
+    function simularGasto (){
+        let horasPermanencia = Number (input_horas_permanencia.value);
+        let capacidadeCaminhao = Number (input_capacidade_tonelada_caminhao.value);
+        let qtdDocas = Number (input_qtd_docas.value);
+        let qtdCaminhoesPorDoca = Number (input_qtd_caminhoes_doca.value);
+        let atualTaxa = 2.41;
+        
+        let valorPorCaminhao = horasPermanencia * capacidadeCaminhao * atualTaxa;
+        let valorTotalDoca =  valorPorCaminhao * qtdCaminhoesPorDoca
+        let valorTotalArmazem = qtdDocas * valorTotalDoca;
+
+        div_mensagem.innerHTML = `A taxa por hora/tonelada de acordo com  a Lei nº 11.442/2007 é de <b>R$${atualTaxa}</b><br>
+        Valor médio da multa por doca é de <b>R$${valorTotalDoca}</b><br>
+        Valor médio de multa do armazém é de <b>R$${valorTotalArmazem}</b>` 
+    }
+</script>
+</html>

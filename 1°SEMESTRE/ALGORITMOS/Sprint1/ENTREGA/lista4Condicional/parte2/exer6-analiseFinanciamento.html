@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>6. Análise de Financiamento Habitacional  </title>
+</head>
+<body>
+    <label for="id_renda_familia">Digite sua renda familiar:</label>
+    <input type="number" id="id_renda_familia">
+    <br>
+    <label for="id_valor_prestacao">Digite o valor da prestação:</label>
+    <input type="number" id="id_valor_prestacao">
+    <br>
+    <button onclick="calcularFinanciamento()">Verificar financiamento</button>
+    <br><br>
+    <div id="resultado_financiamento"></div>
+</body>
+
+<script>
+   function calcularFinanciamento() {
+        let rendaFamiliar = Number (id_renda_familia.value);
+        let valorPrestacao = Number (id_valor_prestacao.value);
+        let porcentFinanciamento = (valorPrestacao / rendaFamiliar) * 100;
+
+                    resultado_financiamento.innerHTML = `A prestação corresponde a ${porcentFinanciamento}% da renda familiar. <br>`
+
+        console.log('ini')
+        if(porcentFinanciamento > 30){
+            resultado_financiamento.innerHTML = resultado_financiamento.innerHTML + '<b style="color:red;">Será necessário complementar a renda familiar</b>'
+        }
+    }
+    console.log('fim')
+</script>
+</html>

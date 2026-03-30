@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista 3 JavaScript</title>
+</head>
+
+<body>
+    <h1>1. Parte 1 - Operações Aritméticas</h1>
+
+    <h3>1. Aposentadoria: Quanto Falta?</h3>
+
+    <span>Digite sua idade:</span>
+    <input type="number" id="id_idade">
+    <br>
+    <button onclick="aposent_homem()">Aposentadoria homem</button>
+    <button onclick="aposent_mulher()">Aposentadoria mulher</button>
+
+    <p id="id_result_aposentadoria"></p>
+
+    <h3>2. Dividindo a Pizza! </h3>
+
+    <span>Digite o valor da pizza:</span>
+    <input type="number" id="id_valor_pizza">
+    <br>
+    <span>Digite de pessoas a dividir:</span>
+    <input type="text" id="id_qtd_pessoas">
+    <br>
+    <button onclick="result_valor()">#lovepizza </button>
+
+    <h3>3. Economia com Bilhete Único </h3>
+
+    <span>Digite o valor da passagem</span>
+    <input type="number" id="id_valor_passagem">
+    <br>
+    <span>Digite a quantidade de viagens por mês</span>
+    <input type="number" id="id_qtd_viagens">
+    <br>
+    <button onclick="passEconomia()">Ver economia</button>
+
+    <h3>4. O Ki dos Sayajins! </h3>
+
+    <span>Digite seu nome:</span>
+    <input type="text" id="id_nome_sayajin">
+    <br>
+    <span>Digite se KI normal</span>
+    <input type="number" id="id_ki_normal">
+    <br>
+    <button onclick="result_ki()">Ver ki em cada forma</button>
+
+    <h3>5. Cálculo da Média na SPTech </h3>
+
+
+    <span>Digite seu nome:</span>
+    <input type="text" id="id_nome_aluno">
+    <br>
+    <span>Digite sua nota da avaliação continuada:</span>
+    <input type="number" id="id_nota_continuada">
+    <br>
+    <span>Digite sua nota de Pesquisa e Inovação</span>
+    <input type="text" id="id_nota_pesqInova">
+    <br>
+    <button onclick="exibir_media()">Exibir média</button>
+
+    <p id="id_result_media"><b>O resultado aparecerá aqui</b></p>
+
+
+    <h3>6. Calculadora Básica </h3>
+
+    <span>Digite o número 1:</span>
+    <input type="number" id="id_num1">
+    <br>
+    <span>Digite o número 2:</span>
+    <input type="number" id="id_num2">
+    <br>
+    <button onclick="soma()">+</button>
+    <button onclick="subtrair()">-</button>
+    <button onclick="dividir()">/</button>
+    <button onclick="multiplicar()">*</button>
+
+    <p id="id_result_operacoes"><b>O resultado aparecerá aqui!!</b></p>
+
+
+</body>
+
+<script>
+    function aposent_homem() {
+        let idade = Number(id_idade.value);
+
+        alert (" Falta(m) " +(70-idade)+ " anos para você se aposentar.")
+    }
+    function aposent_mulher() {
+        let idade = Number(id_idade.value);
+
+        alert (" Falta(m) " +(60-idade)+ " anos para você se aposentar.")
+
+    }
+
+    function result_valor() {
+        let valorPizza = Number(id_valor_pizza.value);
+        let qtdPessoas = Number(id_qtd_pessoas.value);
+
+        alert("Cada um dos " + qtdPessoas + " amigos vai pagar R$" + (valorPizza / qtdPessoas) + ".");
+    }
+
+    function passEconomia(){
+        let valorPassagem = Number (id_valor_passagem.value);
+        let qtdViagens = Number (id_qtd_viagens.value);
+
+        alert ("Você economizará R$"+((valorPassagem/2)* qtdViagens)+ " por mês.");
+    }
+    function result_ki(){
+        let nomeSayajin = (id_nome_sayajin.value);
+        let kiNormal = Number(id_ki_normal.value);
+
+        alert ("O KI de "+nomeSayajin+" na forma Super Sayajin é " +(kiNormal * 50) + ".");
+        alert ("O KI de "+nomeSayajin+" na forma Super Sayajin 2 é "+ (kiNormal * 100) + ".");
+    }
+
+    function exibir_media(){
+        let nomeAluno = (id_nome_aluno.value)
+        let notaContinuada = Number (id_nota_continuada.value);
+        let notaPI = Number (id_nota_pesqInova.value);
+        let media = (notaContinuada * 0.4) + (notaPI * 0.6);
+
+        id_result_media.innerHTML = `
+        A média de ${(nomeAluno)} será de  ${(media)}.
+        `
+    }
+   
+
+    function soma (){
+         let num1 = Number (id_num1.value);
+         let num2 = Number (id_num2.value);
+        id_result_operacoes.innerHTML = `
+        A soma entre ${num1} e ${num2} é ${(num1 + num2)}.
+        `
+    }
+     function subtrair (){
+         let num1 = Number (id_num1.value);
+         let num2 = Number (id_num2.value);
+        id_result_operacoes.innerHTML = `
+        A diferença entre ${num1} e ${num2} é ${(num1 - num2)}.
+        `
+    }
+     function dividir (){
+         let num1 = Number (id_num1.value);
+         let num2 = Number (id_num2.value);
+        id_result_operacoes.innerHTML = `
+        A produto entre ${num1} e ${num2} é ${(num1 / num2)}.
+        `
+    }
+    function multiplicar (){
+         let num1 = Number (id_num1.value);
+         let num2 = Number (id_num2.value);
+        id_result_operacoes.innerHTML = `
+        A razão entre ${num1} e ${num2} é ${(num1 * num2)}.
+        `
+    }
+
+</script>
+
+</html>

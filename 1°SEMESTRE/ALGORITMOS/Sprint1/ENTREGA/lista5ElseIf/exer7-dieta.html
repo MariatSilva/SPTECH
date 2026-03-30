@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>7.Consumo de Calorias: Sua Dieta Está Saudável?</title>
+</head>
+<body>
+    <label for="id_qtd_paes">Digite quantos pães você come por dia:</label>
+    <input type="number" id="id_qtd_paes">
+    <br>
+    <label for="id_qtd_biscoito">Digite quantos pacotes de biscoito você come por dia:</label>
+    <input type="number" id="id_qtd_biscoito">
+    <br>
+    <label for="id_qtd_copo_achocolatado">Digite quantos copos de achocolatado você bebe por dia:</label>
+    <input type="number" id="id_qtd_copo_achocolatado">
+    <br>
+    <button onclick="calcularCalorias()">Verificar calorias</button>
+    <br>
+    <div id="resultadoCalorias"></div>
+
+</body>
+
+    <script>
+        function calcularCalorias(){
+            let qtdPaes = Number (id_qtd_paes.value);
+            let qtdPacotesBiscoito = Number (id_qtd_biscoito.value);
+            let qtdCopoAchocolatado = Number (id_qtd_copo_achocolatado.value);
+
+            let totalCalorias = (qtdPaes * 50) + (qtdPacotesBiscoito * 80) + (qtdCopoAchocolatado * 70);
+
+            if (totalCalorias<200){
+                resultadoCalorias.innerHTML = `Parabéns, vai ficar em forma!`
+            }else if (totalCalorias<=400){
+                resultadoCalorias.innerHTML = `Cuidado, vai ficar menos saudável!`
+            }else {
+                resultadoCalorias.innerHTML = `Alerta crítico de saúde!!!`
+            }
+        }
+    </script>
+</html>

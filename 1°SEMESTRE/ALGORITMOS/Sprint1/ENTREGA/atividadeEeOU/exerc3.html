@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 3</title>
+</head>
+
+<body>
+    <label for="">Escolha seu tipo de passageiro</label>
+    <select name="tipoPassageiro" id="tipo_passageiro">
+        <option value="passageiroComum">Comum</option>
+        <option value="passageiroEstudante">Estudante</option>
+        <option value="passageiroIdosoPne">Idoso/PNE</option>
+    </select>
+    <br>
+    <label for="">Escolha o tipo de passagem:</label>
+    <select name="tipoPassagem" id="tipo_passagem">
+        <option value="passUnica">Passagem Única</option>
+        <option value="passIntegracao">Passagem Integração</option>
+    </select>
+    <button onclick="simularPreco()">Simular preço</button>
+
+    <div id="div_resultado"></div>
+</body>
+<script>
+    function simularPreco() {
+        let tipoPassageiro = (tipo_passageiro.value);
+        let tipoPassagem = (tipo_passagem.value);
+        let passagemUnica = 4.40;
+        let passagemIntegracao = 5.90;
+
+
+
+        if (tipoPassageiro == "passageiroComum" && tipoPassagem == "passUnica") {
+            div_resultado.innerHTML = `Valor da passagem escolhida: R$${passagemUnica.toFixed(2)}`
+        }
+        else if (tipoPassageiro == "passageiroComum" && tipoPassagem == "passIntegracao") {
+            div_resultado.innerHTML = `Valor da passagem escolhida: R$${passagemIntegracao.toFixed(2)}`
+        }
+        else if (tipoPassageiro == "passageiroEstudante" && tipoPassagem == "passUnica") {
+            div_resultado.innerHTML = `Valor da passagem escolhida: R$${(passagemUnica / 2).toFixed(2)}`
+        }
+        else if (tipoPassageiro == "passageiroEstudante" && tipoPassagem == "passIntegracao") {
+            div_resultado.innerHTML = `Valor da passagem escolhida: R$${(passagemIntegracao / 2).toFixed(2)}`
+        } else {
+            div_resultado.innerHTML = `Valor da passagem escolhida: R$0.00`
+        }
+
+    }
+
+
+</script>
+
+
+</html>

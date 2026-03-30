@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5. Classificação de Alunos: Como Está Seu Desempenho?</title>
+</head>
+<body>
+    <label for="id_nota">Digite sua nota:</label>
+    <input type="number" id="id_nota">
+    <button onclick="analisarNota()">Classificar aluno</button>
+</body>
+
+    <script>
+        function analisarNota(){
+            let nota = Number (id_nota.value);
+
+            if (nota<5){
+                alert (`Aluno precisa de muita ajuda`)
+            }else if (nota<=7){
+                alert (`Aluno na média`)
+            }else if (nota<=9.5){
+                alert (`Aluno na acima da média`)
+            }else {
+                alert (`Aluno fora da curva`)
+            }
+        }
+    </script>
+</html>

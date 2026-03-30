@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4. Divisão Justa da Pizza</title>
+</head>
+<body>
+    <label for="id_valor_pizza">Digite o valor da pizza:</label>
+    <input type="number" id="id_valor_pizza">
+    <br>
+    <label for="id_qtd_pessoas">Digite em quantas pessoas o valor será dividido:</label>
+    <input type="number" id="id_qtd_pessoas">
+    <br>
+    <button onclick="calcularPizza()">Rola a pizza?</button>
+
+    <p id="resultadoPizza"></p>
+</body>
+
+<script>
+    function calcularPizza(){
+        let valorPizza = Number (id_valor_pizza.value);
+        let qtdPessoas = Number (id_qtd_pessoas.value);
+
+        let valorPizzaDividido = valorPizza/qtdPessoas;
+            resultadoPizza.innerHTML = `<b><i >Cada amigo vai pagar R$${valorPizzaDividido} pela pizza.</b></i><br>`
+
+        if(valorPizzaDividido >= 20){
+
+            resultadoPizza.innerHTML = resultadoPizza.innerHTML + `<b><i style="color: red;">Deu ruim! Pizza muito cara!</b></i>` 
+
+        }
+    }
+</script>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exerício 4</title>
+</head>
+<body>
+    <label for="ipt_login">Digite seu login:</label>
+    <input type="text" id="ipt_login">
+    <br>
+    <label for="">Digite sua senha:</label>
+    <input type="text" id="ipt_senha">
+    <br>
+    <label for="">Digite sua informação pessoal:</label>
+    <input type="text" id="ipt_infoPessoal">
+    <br>
+    <button onclick="autenticar()">Autenticar</button>
+    <br>
+    <div id="div_resultado"></div>
+</body>
+
+<script>
+    function autenticar(){
+        let login = (ipt_login.value);
+        let senha = (ipt_senha.value);
+        let infoPessoal = (ipt_infoPessoal.value);
+
+
+        if (login == "ana" && senha == "braga" && infoPessoal == "1949" || login == "ana" && senha == "braga" && infoPessoal == "louro josé"){
+            div_resultado.innerHTML = `Usuário autenticado`
+        }else {
+            div_resultado.innerHTML = `Falha na autenticação`
+        }
+    }
+</script>
+
+</html>

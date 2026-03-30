@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 1</title>
+</head>
+<body>
+    <label for="">Dê uma nota para o atendimento:</label>
+    <input type="number" id="ipt_atendimento">
+    <button onclick="notaAtendimento()">Avaliar atendimento</button>
+    <div id="id_resultado"></div>
+</body>
+
+    <script>
+        function notaAtendimento (){
+            nota = Number(ipt_atendimento.value);
+
+            if(nota<0 || nota>10){
+            id_resultado.innerHTML = `Nota inválida.`
+            }
+            else if (nota>=0 && nota<5 ){
+                id_resultado.innerHTML = `Não aprovado`
+            }
+            else if (nota == 5 || nota ==6){
+                id_resultado.innerHTML = `Neutro`
+            }else {
+                id_resultado.innerHTML = `Aprovado`
+            }
+        }
+    </script>
+</html>

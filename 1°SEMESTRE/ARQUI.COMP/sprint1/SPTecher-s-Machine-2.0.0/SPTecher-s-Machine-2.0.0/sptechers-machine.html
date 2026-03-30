@@ -1,0 +1,120 @@
+<!-- Criado por Marise Miranda | 2017.1 -->
+<!-- Adaptado por Matheus Matos | 2025.1 -->
+
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MaryMoon's Machine</title>
+   
+    <style>
+        .div_botoes{
+             display: flex;
+             justify-content: center;
+             gap: 20px;
+        }
+    </style>
+</head>
+
+<body bgcolor="#F5D2C6">
+    <center>
+        <h1 style="color:#502036" >MaryMoon's Machine</h1>
+        <h2 style="color:#502036">Escolha uma base para conversão</h2>
+        <div class="div_botoes">
+        <button onclick="decimal()" style="background-color: #502036; color:aliceblue; box-shadow: 6px 4px 5px rgb(123, 89, 89);" ><b>Decimal</b></button>
+        <button onclick="octal()" style="background-color: #502036; color:aliceblue;  box-shadow: 6px 4px 5px rgb(123, 89, 89);"><b>Octal</b></button>
+        <button onclick="hexagonal()" style="background-color: #502036; color:aliceblue;  box-shadow: 6px 4px 5px rgb(123, 89, 89);"><b>Hexagonal</b></button>
+        <button onclick="binario()" style="background-color: #502036; color:aliceblue;  box-shadow: 6px 4px 5px rgb(123, 89, 89);"><b>Binário</b></button>
+        </div>
+        <div id="div_resultado"></div>
+        <div id="botao_calcular"></div>
+        <div id="demo2"></div>
+        <div id="demo3"></div>
+        <div id="demo4"></div>
+    </center>
+
+    <script>
+        
+        function decimal() {
+            div_resultado.innerHTML = `<h3 style="color:#502036">Digite um número decimal:</h3>
+        <input id="demo1" type="text" placeholder="Ex: 42">
+        <br><br>
+            `
+        botao_calcular.innerHTML = `<button onclick="converter()">Converter</button><br><br>`
+        }
+         function octal(){
+            div_resultado.innerHTML =`<h3 style="color:#502036">Digite um número octal:</h3>
+        <input id="demo1" type="text" placeholder="Ex: 12">
+        <br><br>`
+        
+         botao_calcular.innerHTML = `<button onclick="converter2()">Converter</button><br><br>`
+        }
+         function hexagonal(){
+             div_resultado.innerHTML =`<h3 style="color:#502036">Digite um número hexadecimal:</h3>
+        <input id="demo1" type="text" placeholder="Ex: 09">
+        <br><br>`
+        botao_calcular.innerHTML = `<button onclick="converter3()">Converter</button><br><br>`
+        }
+        function binario(){
+            div_resultado.innerHTML =`<h3 style="color:#502036">Digite um número binário:</h3>
+        <input id="demo1" type="text" placeholder="Ex: 1010111">
+        <br><br>`
+        
+         botao_calcular.innerHTML = `<button onclick="converter4()">Converter</button><br><br>`
+        }
+        
+        function converter(){
+            let valorDecimal = Number(demo1.value);
+
+            demo2.innerHTML = `<b style="color:#502036">Octal:</b>${valorDecimal.toString(8)}<br><br>`
+            demo3.innerHTML = `<b style="color:#502036">Hexadecimal:</b>${valorDecimal.toString(16)}<br><br>`
+            demo4.innerHTML = `<b style="color:#502036">Binario:</b>${valorDecimal.toString(2)}<br><br>`
+        } 
+        function converter2(){ 
+            let valorOctal = Number(demo1.value);
+
+            demo2.innerHTML = `<b style="color:#502036">Decimal:</b>${parseInt(valorOctal, 8)}<br><br>`
+            demo3.innerHTML = `<b style="color:#502036">Hexadecimal</b>:${parseInt(valorOctal, 8).toString(16)}<br><br>`
+            demo4.innerHTML = `<b style="color:#502036">Binario:</b>${parseInt(valorOctal, 8).toString(2)}<br><br>`
+        }
+
+    
+         function converter3(){         
+            let valorHexadecimal = Number(demo1.value);
+
+            demo2.innerHTML = `<b style="color:#502036">Decimal:</b>${parseInt(valorHexadecimal, 16)}<br><br>`
+            demo3.innerHTML = `<b style="color:#502036">Octal:</b>${parseInt(valorHexadecimal, 16).toString(8)}<br><br>`
+            demo4.innerHTML = `<b style="color:#502036">Binario:</b>${parseInt(valorHexadecimal, 16).toString(2)}<br><br>`
+        }
+
+        function converter4(){
+              let valorBinario = Number(demo1.value);
+
+            demo2.innerHTML = `<b style="color:#502036">Decimal:</b>${parseInt(valorBinario, 2)}<br><br>`
+            demo3.innerHTML = `<b style="color:#502036">Octal:</b>${parseInt(valorBinario, 2).toString(8)}<br><br>`
+            demo4.innerHTML = `<b style="color:#502036">Hexadecimal:</b>${parseInt(valorBinario, 2).toString(16)}<br><br>`
+        }
+           
+    </script>
+</body>
+
+<!--   <h3>Digite um número decimal:</h3>
+        <input id="demo1" type="text" placeholder="Ex: 42">
+        <br><br>
+
+        <button onclick="converter()">Converter</button>
+
+        <h3>Resultados:</h3>
+        <p>Octal:
+        <div id="demo2"></div>
+        </p>
+        <p>Hexadecimal:
+        <div id="demo3"></div>
+        </p>
+        <p>Binário:
+        <div id="demo4"></div>
+        </p> -->
+
+</html>

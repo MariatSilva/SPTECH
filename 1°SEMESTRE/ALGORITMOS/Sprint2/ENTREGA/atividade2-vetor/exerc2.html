@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício</title>
+</head>
+
+<body>
+
+    <!-- usuário digita seu palpite e exibe o resultado após apertar no botão de palpite-->
+    <h3>Palpite quais os melhores personagens da saga de Instrumentos Mortais!!</h3>
+    <label for="">Digite o seu palpite da 1° posição:</label>
+    <input type="text" id="ipt_palpite1">
+    <br>
+    <label for="">Digite o seu palpite da 2° posição:</label>
+    <input type="text" id="ipt_palpite2">
+    <br>
+    <label for="">Digite o seu palpite da 3° posição:</label>
+    <input type="text" id="ipt_palpite3">
+    <br>
+    <label for="">Digite o seu palpite da 4° posição:</label>
+    <input type="text" id="ipt_palpite4">
+    <br>
+    <label for="">Digite o seu palpite da 5° posição:</label>
+    <input type="text" id="ipt_palpite5">
+    <br>
+    <button onclick="palpite()">Exibir Resultado</button>
+    <br>
+    <div id="div_resultado"></div>
+    <br><br>
+
+    <!-- PARTE DOIS DO EXERCICIO
+    Usuario digita os proprios campeoes fazendo sua lista -->
+    <h2>Meus Campeões</h2>
+
+    <label for="">Digite o nome de um campeão:</label>
+    <input type="text" id="ipt_campeao">
+    <button onclick="adicionar()">Adicionar</button>
+    <div id="div_resultado_campeao"></div>
+   
+    <!-- usuario busca um nome que pode estar ou não esta em alguma das listas -->
+    <label for="">Buscar:</label>
+    <input type="text" id="ipt_buscar">
+    <button onclick="buscar()">Buscar</button>
+    <div id="div_resultado_buscar"></div>
+
+</body>
+
+
+
+<script>
+    
+    let nomesOficiais = ["Magnus Bane", "Simon Lovelace", "Isabelly Lightwood", "Clary Fairchaild", "Jace Herondale"]
+
+    function palpite() {
+        let contador = 0;
+        let palpite1 = ipt_palpite1.value;
+        let palpite2 = ipt_palpite2.value;
+        let palpite3 = ipt_palpite3.value;
+        let palpite4 = ipt_palpite4.value;
+        let palpite5 = ipt_palpite5.value;
+
+
+
+        if (palpite1 == nomesOficiais[0]) {
+            contador += 1
+            div_resultado.innerHTML = `<br><b>1° </b>Acertou Magnus Bane`
+        } else {
+            div_resultado.innerHTML = `<br><b>1° </b>Errou Magnus Bane`
+        }
+
+        if (palpite2 == nomesOficiais[1]) {
+            contador += 1
+            div_resultado.innerHTML += `<br><b>2° </b>Acertou Simon Lovelace`
+        } else {
+            div_resultado.innerHTML += `<br><b>2° </b>Errou Simon Lovelace`
+        }
+
+        if (palpite3 == nomesOficiais[2]) {
+            contador += 1
+            div_resultado.innerHTML += `<br><b>3° </b>Acertou Isabelly Lightwood`
+        } else {
+            div_resultado.innerHTML += `<br><b>3° </b>Errou Isabelly Lightwood`
+        }
+
+        if (palpite4 == nomesOficiais[3]) {
+            contador += 1
+            div_resultado.innerHTML += `<br><b>4° </b>Acertou Clary Fairchaild`
+        } else {
+            div_resultado.innerHTML += `<br><b>4° </b>Errou Clary Fairchaild`
+        }
+
+        if (palpite5 == nomesOficiais[4]) {
+            contador += 1
+            div_resultado.innerHTML += `<br><b>5° </b>Acertou Jace Herondale`
+        } else {
+            div_resultado.innerHTML += `<br><b>5° </b>Errou Jace Herondale`
+        }
+
+        div_resultado.innerHTML += `<br><br>
+        Você acertou o ranking de ${contador} personagem(ns).
+        <br>
+        Você errou o raking de ${(nomesOficiais.length) - contador} personagem(ns)
+        `
+
+        if (contador > 2) {
+            div_resultado.innerHTML += `<br><br>Você conhece bem essa competição!`
+        } else {
+            div_resultado.innerHTML += `<br><br>Você precisa acompanhar mais essa competição!`
+        }
+
+        div_resultado.innerHTML += `<br<br><h2>Exibição do campeão</h2>`
+
+        let campeao = nomesOficiais[0].toUpperCase();
+        div_resultado.innerHTML += `${campeao}  🥇`
+    }
+
+
+
+
+
+
+    let vetorCampeao = [];
+    function adicionar() {
+
+        let campeao = ipt_campeao.value;
+
+        vetorCampeao.push(campeao);
+
+        div_resultado_campeao.innerHTML = `${vetorCampeao}<br>`
+
+
+    }
+
+
+    
+
+    function buscar() {
+        let buscarNome = (ipt_buscar.value);
+        let indiceNomeCampeao = vetorCampeao.indexOf(buscarNome);
+        let indiceNomeOficial = nomesOficiais.indexOf(buscarNome)
+
+        if (indiceNomeCampeao != -1 && indiceNomeOficial != -1) {
+            div_resultado_buscar.innerHTML = `O nome está presente na lista do sistema e na lista do usuário`
+        } else if (indiceNomeCampeao == -1 && indiceNomeOficial == -1) {
+            div_resultado_buscar.innerHTML = `O nome não está presente em nenhuma das listas.`
+        } else if (indiceNomeCampeao >= 0) {
+            div_resultado_buscar.innerHTML = `O nome está presente na lista do usuário.`
+        } else {
+            div_resultado_buscar.innerHTML = `O nome está presente na lista do sistema.`
+        }
+
+
+    }
+</script>
+
+</html>

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio Luffy</title>
+</head>
+
+<body>
+    <label for="">Quantidade de batalhas:</label>
+    <input type="number" id="ipt_qtd_batalhas">
+    <br>
+    <label for="">Quantidade de marinheiros em cada batalha</label>
+    <input type="number" id="ipt_qtd_marinheiros">
+    <br>
+    <label for="">Quantidade de carne disponível</label>
+    <input type="number" id="ipt_qtd_carne">
+    <br>
+    <button onclick="simularBatalha()">Simular batalha</button>
+    <br><br>
+    <div id="div_resultado"></div>
+</body>
+
+
+
+
+<script>
+
+
+    function simularBatalha() {
+        div_resultado.innerHTML = ``;
+
+        let qtdBatalhas = Number(ipt_qtd_batalhas.value);
+        let qtdMarinheiros = Number(ipt_qtd_marinheiros.value);
+        let qtdCarne = Number(ipt_qtd_carne.value);
+        let energia = 100;
+
+        div_resultado.innerHTML += `
+            --------------------------------------<br>
+            Quantidade de batalhas: ${qtdBatalhas}<br>
+            Quantidade de marinheiros: ${qtdMarinheiros}<br>
+            Quantidade de carnes: ${qtdCarne} <br>
+            --------------------------------------<br>`
+
+
+        for (let i = 1; i <= qtdBatalhas; i++) {
+
+            let qtdMarinheirosRestantes = qtdMarinheiros
+            let qtdMarinheirosDerrotados = 0
+
+            if (energia > 0) {
+                if (i > 1) {
+                    energia -= 10
+                }
+
+                    div_resultado.innerHTML += `
+                    ${i}° Batalha Iniciada:<br>
+                    Quantidade de Energia Inicial: ${energia}<br>`
+
+
+                while (energia >= 5 && qtdMarinheirosRestantes >= 1) {
+                    energia -= 5;
+                    qtdMarinheirosRestantes--;
+                    qtdMarinheirosDerrotados++;
+                }
+
+                    if (qtdMarinheirosRestantes == 0) {
+                      div_resultado.innerHTML += `
+                            Resultado: Luffy saiu vitorioso, derrotando ${qtdMarinheirosDerrotados} marinheiro(s)<br>
+                            ⚡ Energia Restante no Final da Batalha: ${energia}<br>
+                            🥩 Carnes Restantes no Final da Batalha: ${qtdCarne}<br>`
+
+                    }
+                    else { 
+                            if (qtdCarne >= 1) {
+                                qtdCarne--;
+                                energia = 100;
+
+                                while (energia >= 5 && qtdMarinheirosRestantes >= 1) {
+                                energia -= 5;
+                                qtdMarinheirosRestantes--;
+                                qtdMarinheirosDerrotados++;
+                                }
+                              if (qtdMarinheirosRestantes == 0) {
+                        div_resultado.innerHTML += `
+                            Resultado: Luffy saiu vitorioso, derrotando ${qtdMarinheirosDerrotados} marinheiro(s)<br>
+                            ⚡ Energia Restante no Final da Batalha: ${energia}<br>
+                            🥩 Carnes Restantes no Final da Batalha: ${qtdCarne}<br>`
+
+                    }else {
+
+                                 div_resultado.innerHTML += `
+                                    Resultado: Luffy saiu derrotado, derrotando ${qtdMarinheirosDerrotados} marinheiro(s)<br>
+                                    ⚡ Energia Restante no Final da Batalha: ${energia}<br>
+                                    🥩 Carnes Restantes no Final da Batalha: ${qtdCarne}<br>`
+
+
+                                }
+                            } 
+                                else {
+
+                                 div_resultado.innerHTML += `
+                                    Resultado: Luffy saiu derrotado, derrotando ${qtdMarinheirosDerrotados} marinheiro(s)<br>
+                                    ⚡ Energia Restante no Final da Batalha: ${energia}<br>
+                                    🥩 Carnes Restantes no Final da Batalha: ${qtdCarne}<br>`
+
+
+                                }
+                        }
+
+
+
+            }
+
+            else {
+                div_resultado.innerHTML += `Não é possível iniciar a ${i}º batalha, acabou a carne e a energia.<br>`
+            }
+
+                div_resultado.innerHTML += `---------------------------<br>`
+
+        }
+    }
+
+</script>
+</html>

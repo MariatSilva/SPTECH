@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="ipt_sala">
+    <br>
+
+    <button onclick="exibir()">Exibir Resumo</button>
+    <br>
+    <div id="div_resultado"></div>
+</body>
+<script>
+    function exibir(){
+        let sala = (ipt_sala.value);
+        
+
+        let curso = sala.substring(1,4)
+        let turma = sala.substring(4,5);
+        let inicio = sala.substring(6,10);
+        let semestre = sala.substring(0,1);
+
+       
+
+        div_resultado.innerHTML = `
+       
+        Você é do curso de ${curso}, da turma ${turma}, e iniciou em ${inicio}, seu semestre é ${semestre}º`
+
+    }
+</script>
+
+<!--   let teste = sala.substring(2,7);
+     <br>
+        teste Substring: ${teste}
+
+
+-->
+</html>

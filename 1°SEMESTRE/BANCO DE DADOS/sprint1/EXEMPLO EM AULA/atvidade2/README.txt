@@ -1,0 +1,8 @@
+O que foi exercitado aqui
+
+ALGUMAS TIPOS DE DADO
+DROP
+INSERT
+SELECT 
+CREATE DATABASE/TABLE
+
