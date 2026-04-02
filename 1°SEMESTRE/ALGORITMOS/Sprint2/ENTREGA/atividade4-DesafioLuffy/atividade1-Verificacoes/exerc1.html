@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <label for="">Digite uma mensagem:</label>
+    <input type="text" id="ipt_mensagem">
+    <br>
+    <button onclick="analisarMensagem()">Analisar mensagem</button>
+    <br>
+    <div id="div_resultado"></div>
+
+
+</body>
+<script>
+    function analisarMensagem() {
+        let mensagem = (ipt_mensagem.value);
+        let mensagem_sem_espaco = mensagem.trim();
+        let tamanho_mensagem = mensagem_sem_espaco.length;
+
+
+        if (tamanho_mensagem == 0) {
+
+            div_resultado.innerHTML = `Digite uma mensagem válida`
+
+        }
+        else {
+            div_resultado.innerHTML = `<b><b><br>Análises obrigatórias</b></b>`
+            if (tamanho_mensagem < 10) {
+                div_resultado.innerHTML += `Digite uma mensagem de pelo menos 10 caracteres`
+            } else {
+                tamanho_mensagem = mensagem.length;
+                div_resultado.innerHTML += `<br>O tamanho da mensagem é de ${tamanho_mensagem} caracteres`;
+
+
+                let inicio_palavra_mensagem = mensagem.startsWith("Eu");
+                if (inicio_palavra_mensagem) {
+                    div_resultado.innerHTML += `<br>A mensagem começa com a palavra "Eu"`
+                } else {
+                    div_resultado.innerHTML += `<br>A mensagem não começa com a palavra "Eu"`
+                }
+
+
+                let final_palavra_mensagem = mensagem.endsWith(".com");
+                if (final_palavra_mensagem) {
+                    div_resultado.innerHTML += `<br> A mensagem termina com .com`
+                } else {
+                    div_resultado.innerHTML += `<br>A mensagem não termina com .com`
+                }
+
+
+                let final_palavra_mensagem_br = mensagem.endsWith(".br");
+                if (final_palavra_mensagem_br) {
+                    div_resultado.innerHTML += `<br> A mensagem termina com .br`
+                } else {
+                    div_resultado.innerHTML += `<br>A mensagem não termina com .br`
+                }
+
+                let primeira_letra_mensagem = mensagem[0];
+                div_resultado.innerHTML += `<br>A primeira letra da mensagem é ${primeira_letra_mensagem}`;
+
+                let quarta_letra_mensagem = mensagem[3];
+                div_resultado.innerHTML += `<br>A quarta letra da mensagem é ${quarta_letra_mensagem}`;
+
+                let ultima_letra_mensagem = mensagem[tamanho_mensagem - 1];
+                div_resultado.innerHTML += `<br>A última letra da mensagem é ${ultima_letra_mensagem}`;
+                
+                let indice_bob = mensagem.indexOf("Bob");  
+                div_resultado.innerHTML += `<br>A palavra Bob foi encontrada na posição ${indice_bob}`;
+                if (indice_bob == -1) {
+                    div_resultado.innerHTML += `<br>A palavra Bob não aparece na mensagem`
+                } else {
+                    div_resultado.innerHTML += `<br>A palavra Bob aparece na mensagem`
+                }
+
+                let mensagem_caixa_alta = mensagem.toUpperCase();
+                div_resultado.innerHTML += `<br>Frase em MAIÚSCULO: ${mensagem_caixa_alta}`;
+
+                let mensagem_caixa_baixa = mensagem.toLowerCase();
+                div_resultado.innerHTML += `<br>Frase em minúsculo: ${mensagem_caixa_baixa}`;
+
+
+                mensagem_sem_espaco = mensagem.trim();
+                div_resultado.innerHTML += `<br> mensagem sem espaço:${mensagem_sem_espaco}<br><br><br>`
+
+
+                div_resultado.innerHTML += `<br><b>Validações com condicionais</b>`
+
+                if (indice_bob !== -1) {
+                    div_resultado.innerHTML += `<br>Atenção: usuário Bob mencionado na mensagem.`
+                }
+
+
+                if (final_palavra_mensagem_br || final_palavra_mensagem) {
+                    div_resultado.innerHTML += `<br>A mensagem contém um possível link.`
+                }
+
+                let promocao = mensagem.indexOf("promoção");
+                let gratis = mensagem.indexOf("grátis");
+                if (promocao !== -1 || gratis !== -1) {
+                    div_resultado.innerHTML += `<br>Possível mensagem de spam detectada.`
+                }
+                div_resultado.innerHTML += `<br><br><br><b>Desafio</b>`
+
+                let primeira_palavra_Eu = mensagem.startsWith("Eu");
+                if (primeira_palavra_Eu) {
+                    div_resultado.innerHTML += `<br>A mensagem parece estar escrita em primeira pessoa.`
+                }
+                if (promocao !== -1 && final_palavra_mensagem_br || promocao !== -1 && final_palavra_mensagem
+                    || gratis !== -1 && final_palavra_mensagem || gratis !== -1 && final_palavra_mensagem_br) {
+                    div_resultado.innerHTML += `<br>Mensagem com link e suspeita.`
+                } else if (promocao !== -1 || gratis !== -1) {
+                    div_resultado.innerHTML += `<br>Mensagem suspeita`
+                } else if (final_palavra_mensagem_br || final_palavra_mensagem) {
+                    div_resultado.innerHTML += `<br>Mensagem com link`
+                } else {
+                    div_resultado.innerHTML += `<br>Mensagem comum`
+                }
+
+
+
+            }
+
+        }
+
+    }   
+</script>
+
+
+</html>
