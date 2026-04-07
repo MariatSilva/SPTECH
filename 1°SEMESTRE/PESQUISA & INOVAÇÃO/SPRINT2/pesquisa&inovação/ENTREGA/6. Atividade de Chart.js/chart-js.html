@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade Chart js</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body style="display: flex;">
+
+    <div style="height:40vh; width:80vw">
+        <canvas id="graficoLinha"></canvas>
+    </div>
+    <br>
+    <div style="height:40vh; width:80vw">
+        <canvas id="graficoBarra"></canvas>
+    </div>
+
+</body>
+
+
+<script>
+    const labels = [
+        '12:00',
+        '13:00',
+        '14:00',
+        '15:00',
+        '16:00',
+        '17:00'
+    ]
+
+    const data = {
+        labels: labels,
+        datasets: [{
+            label: 'Temperatura',
+            backgroundColor: 'rgb(219, 118, 161)',
+            borderColor: 'rgb(219, 118, 161)',
+            data: [30, 29, 28, 25, 22, 23],
+            yAxisId: 'y'
+
+        },
+        {
+            label: 'Umidade',
+            backgroundColor: 'rgb(140, 215, 223)',
+            borderColor: 'rgb(140, 215, 223)',
+            data: [80, 82, 80, 85, 80, 83],
+            yAxisId: 'y1'
+
+
+        }
+        ]
+    };
+
+
+    const config = {
+        type: 'line',
+        data: data,
+        options: {
+            responsive: true,
+            interaction: {
+                mode: 'index',
+                intersect: false,
+            },
+            stacked: false,
+            plugins: {
+               
+            
+            },
+            scales: {
+                y: {
+                    type: 'linear',
+                    display: true,
+                    position: 'left',
+                    min: 20,
+                    max: 90,
+                },
+                y1: {
+                    type: 'linear',
+                    display: true,
+                    position: 'right',
+                    min: 0,
+                    max: 100,
+                },
+            }
+        },
+    };
+    const graficoLinha = new Chart(
+        document.getElementById('graficoLinha'),
+        config
+    )
+
+
+    const labels2 = [
+    'Janeiro',
+    'Fevereiro',
+    'Março',
+    'Abril',
+    'Maio',
+    'Junho']
+
+    const data2 = {
+        labels: labels2,
+        datasets: [{
+
+            label: 'Temperatura Média',
+            backgroundColor: 'rgb(219, 118, 161)',
+            borderColor: 'rgb(219, 118, 161)',
+            data: [22, 24, 27, 23, 20, 18],
+        },
+        {
+        label: 'Umidade Média',
+            backgroundColor: 'rgb(140, 215, 223)',
+            borderColor: 'rgb(140, 215, 223)',
+            data: [90, 89, 93, 87, 88, 82],
+        }
+        ]
+    };
+     const config2 = {
+        type: 'bar',
+        data: data2,
+        options: {}
+     };
+
+      const graficoBarra = new Chart(
+        document.getElementById('graficoBarra'),
+        config2
+    )
+</script>
+
+</html>

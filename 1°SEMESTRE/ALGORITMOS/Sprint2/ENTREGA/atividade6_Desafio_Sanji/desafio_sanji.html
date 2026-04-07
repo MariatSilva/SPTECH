@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
@@ -8,36 +8,61 @@
 </head>
 
 <body>
+
+    <h2>Cadastre e verifique a quantidade de comida</h2>
     <label for="">Cadastrar Estoque de Comidas</label>
     <input type="text" id="ipt_comida">
     <br>
     <button onclick="cadastrarComida()">Cadastrar</button>
     <button onclick="verificarQuantidade()">Verificar Quantidade</button>
     <div id="resultado"></div>
-    <br><br>
+
+
+    <h2>Pesquise uma comida específica ou veja o seu estoque</h2>
     <label for="">Pesquise o nome de uma comida</label>
     <input type="text" id="ipt_pesquisa_comida">
     <br>
     <button onclick="pesquisar_comida()">Pesquisar</button>
     <button onclick="exibir_estoque()">Exibir Estoque</button>
     <div id="resultado_pesquisa"></div>
+    <div id="exibir_estoque_resultado"></div>
+
+
+    <h2>Atualize uma comida</h2>
+    <label for="">Digite o nome da comida que você quer alterar:</label>
+    <input type="text" id="ipt_nome_atual_comida">
+    <br>
+    <label for="">Digite para qual nome você quer alterar:</label>
+    <input type="text" id="ipt_nome_para_alteracao">
+    <br>
+    <button onclick="alterar_nome()">Alterar Nome</button>
+    <div id="resultado_comida_alterada"></div>
+
+
+    <h2>Delete uma comida</h2>
+    <label for="">Digite o nome da comia a ser deletada:</label>
+    <input type="text" id="ipt_comida_para_remover">
+    <br>
+    <button onclick="remover_comida()">Remover Comida</button>
+    <div id="resultado_remover_comida"></div>
+
 </body>
 <script>
 
-    let comida_geral_navio = [];
+    let estoque = [];
 
     function cadastrarComida() {
         let comida = (ipt_comida.value);
 
-        comida_geral_navio.push(comida);
+        estoque.push(comida);
 
-        console.log(comida_geral_navio)
+        console.log(estoque)
     }
 
 
     function verificarQuantidade() {
         resultado.innerHTML = ``;
-        let qtd_comida = comida_geral_navio.length;
+        let qtd_comida = estoque.length;
 
 
         if (qtd_comida < 3) {
@@ -55,7 +80,7 @@
     function pesquisar_comida() {
         let qtd_comida_encontradas = 0;
         let buscarComida = (ipt_pesquisa_comida.value)
-        let existeComida = comida_geral_navio.includes(buscarComida);
+        let existeComida = estoque.includes(buscarComida);
 
 
 
@@ -64,8 +89,8 @@
         }
 
         else {
-            for (let i = 0; i < comida_geral_navio.length; i++) {
-                if (comida_geral_navio[i] == buscarComida) {
+            for (let i = 0; i < estoque.length; i++) {
+                if (estoque[i] == buscarComida) {
                     qtd_comida_encontradas++;
                 }
             }
@@ -75,17 +100,64 @@
     }
 
     function exibir_estoque() {
+        exibir_estoque_resultado.innerHTML = ``
         let totalComida = [];
 
-        for (let i = 0; i < comida_geral_navio.length; i++) {
-            if (!totalComida.includes(comida_geral_navio)) {
-                totalComida.push(comida_geral_navio[i]);
+        for (let i = 0; i < estoque.length; i++) {
+            if (!totalComida.includes(estoque[i])) {
+                totalComida.push(estoque[i]);
             }
+        }
 
+        for (let i = 0; i < totalComida.length; i++) {
+
+            let contadorComida = 0;
+            for (let j = 0; j < estoque.length; j++) {
+                if (totalComida[i] == estoque[j]) {
+                    contadorComida++
+                }
+            }
+            exibir_estoque_resultado.innerHTML += `${totalComida[i]} (${contadorComida} ${contadorComida > 1 ? "unidades" : "unidade"})<br>`
         }
         console.log(totalComida)
+    }
 
-    
+    function alterar_nome() {
+        let nomeAtualComida = ipt_nome_atual_comida.value;
+        let nomeParaAlteracao = ipt_nome_para_alteracao.value;
+        let encontrou = false;
+
+        for (let i = 0; i < estoque.length; i++) {
+            if (estoque[i] == (nomeAtualComida)) {
+                estoque[i] = nomeParaAlteracao;
+                encontrou = true;
+            }
+        }
+        if (encontrou) {
+            resultado_comida_alterada.innerHTML = `A comida ${nomeAtualComida} foi alterada para ${nomeParaAlteracao}`;
+        } else {
+            resultado_comida_alterada.innerHTML = `A comida ${nomeAtualComida} não foi encontrada no estoque`
+        }
+    }
+
+    function remover_comida() {
+        resultado_remover_comida.innerHTML = ``
+        let nomeRemoverComida = ipt_comida_para_remover.value
+        let encontrou = false;
+
+        if (estoque.indexOf(nomeRemoverComida) >= 0) {
+
+
+            for (let i = 0; i < estoque.length; i++) {
+                if (estoque[i] == nomeRemoverComida) {
+                    estoque.splice(i, 1);
+                    resultado_remover_comida.innerHTML = `A comida ${nomeRemoverComida} foi removida do estoque.`
+                    i--
+                }
+            }
+        } else {
+            resultado_remover_comida.innerHTML = `A comida ${nomeRemoverComida} não está no estoque.`
+        }
     }
 </script>
 

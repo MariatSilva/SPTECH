@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doceria</title>
+
+
+</head>
+<body>
+    
+    
+    <h2>Doceria Gourmet- Dori Valdossin</h2>
+    
+    <label for="">Digite a quantidade de Macarons que você quer:</label>
+    <input type="number" id="ipt_qtd_macaron">
+    <br>
+    <label for="">Digite o preço unitário do Macaron:</label>
+    <input type="number" id="ipt_preco_macaron">
+    <br><br>
+
+    <label for="">Digite a quantidade de Brigadeiros que você quer:</label>
+    <input type="number" id="ipt_qtd_brigadeiro">
+    <br>
+    <label for="">Digite o preço unitário do Brigadeiro:</label>
+    <input type="number" id="ipt_preco_brigadeiro">
+    <br><br>
+
+    <label for="">Digite a quantidade de Cupcakes que você quer:</label>
+    <input type="number" id="ipt_qtd_cupcake">
+    <br>
+    <label for="">Digite o preço unitário do Cupcake:</label>
+    <input type="number" id="ipt_preco_cupcake">
+    <br><br>
+
+    <label for="">Digite a quantidade de Cheesecakes que você quer:</label>
+    <input type="number" id="ipt_qtd_cheesecake">
+    <br>
+    <label for="">Digite o preço do Cheesecake:</label>
+    <input type="number" id="ipt_preco_cheesecake">
+    <br><br>
+    <button onclick="verificarVendas()">Verificar Vendas</button>
+    <br><br>
+    <div id="div_resultado"></div>
+    
+</body>
+
+<script>
+    function verificarVendas(){
+        div_resultado.innerHTML = ``
+        let qtdMacaron = Number (ipt_qtd_macaron.value);
+        let precoMacaron = Number (ipt_preco_macaron.value);
+        
+        let qtdBrigadeiro = Number (ipt_qtd_brigadeiro.value);
+        let precoBrigadeiro = Number (ipt_preco_brigadeiro.value);
+
+        let qtdCupcake = Number (ipt_qtd_cupcake.value);
+        let precoCupcake = Number (ipt_preco_cupcake.value);
+
+        let qtdCheesecake = Number(ipt_qtd_cheesecake.value);
+        let precoCheesecake = Number (ipt_preco_cheesecake.value);
+        let contador = 0;
+
+        let valorTotal = (qtdMacaron * precoMacaron) + (qtdBrigadeiro * precoBrigadeiro) + (qtdCupcake * precoCupcake) + (qtdCheesecake * precoCheesecake)
+
+        if(qtdMacaron<0 || precoMacaron<0 || qtdBrigadeiro<0 || precoBrigadeiro<0
+        || qtdCupcake<0 || precoCupcake<0 || qtdCheesecake<0 || precoCheesecake<0){
+            div_resultado.innerHTML = `Não digite NENHUM valor negativo, seu pilantra.`
+        }else{
+            for(let i = 0; i<qtdMacaron; i++){
+                contador++;
+                div_resultado.innerHTML += `
+                <hr><br>
+                Número de venda: ${contador}    
+                 <img style="width:70px; heigth:70px;" src="data:image/jpeg;base64,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" alt=""> 
+                 Valor Unitário R$${precoMacaron}<br>
+                
+                `
+            }
+            for(let i = 0; i<qtdBrigadeiro; i++){
+                contador++;
+                div_resultado.innerHTML += `
+                <hr><br>
+                Número de venda: ${contador}    
+                 <img style="width:70px; heigth:70px;" src="https://upload.wikimedia.org/wikipedia/commons/a/a4/Brigadeiro.jpg" alt=""> 
+                 Valor Unitário R$${precoBrigadeiro}<br>
+                
+                `
+            }
+            for(let i = 0; i<qtdCupcake; i++){
+                contador++;
+                div_resultado.innerHTML += `
+                <hr><br>
+                Número de venda: ${contador}    
+                 <img style="width:70px; heigth:70px;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQvZNYzu4FpFHFpobaXt0mWMhWN4XELqZ5szA&s" alt=""> 
+                 Valor Unitário R$${precoCupcake}<br>
+                
+                `
+            }
+            for(let i = 0; i<qtdCheesecake; i++){
+                contador++;
+                div_resultado.innerHTML += `
+                <hr><br>
+                Número de venda: ${contador}    
+                 <img style="width:70px; heigth:70px;" src="https://www.recipetineats.com/tachyon/2024/09/No-bake-cheesecake_8.jpg" alt=""> 
+                 Valor Unitário R$${precoCheesecake}<br>
+                
+                `
+            }
+
+            div_resultado.innerHTML += `
+            <hr><br><br>
+            Com a quantidade de ${qtdMacaron} Macaron(s), ${qtdBrigadeiro} Brigadeiro(s), ${qtdCupcake} Cupcake(s) e ${qtdCheesecake} Cheesecake(s), a venda totalizará R$${valorTotal.toFixed(2)}
+            `
+        }
+    }
+</script>
+</html>
